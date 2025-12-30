@@ -36,5 +36,7 @@ module.exports = (app) => {
       }
     }
   });
+  console.log(controller,"---controller---");
+
   app.controller = controller;
 };
