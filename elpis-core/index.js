@@ -45,12 +45,19 @@ module.exports = {
     console.log(`--[start] service done--`);
     // 加载配置
     configLoader(app);
-    console.log(app.config);
+    // console.log(app.config);
     console.log(`--[start] config done--`);
     // 加载扩展
     extendLoader(app);
     console.log(app);
     console.log(`--[start] extend done--`);
+    // 注册全局中间件
+    try {
+      require(`${app.businessPath}${sep}middleware.js`)(app);
+      console.log(`--[start] load global Appmiddleware done--`);
+    } catch (e) {
+      console.log("[exception] there is no middleware file.");
+    }
     // 加载路由
     routerLoader(app);
     console.log(`--[start] router done--`);

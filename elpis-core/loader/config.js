@@ -39,5 +39,6 @@ module.exports = (app) => {
   } catch (error) {
     console.log("[exceptTion] there is no env.config file");
   }
-  app.config = Object.assign({}, defaultConfig, envConfig) ;
+  app.config = Object.assign({}, defaultConfig, envConfig);
+  console.log(" app.config => ", app.config);
 };
