@@ -2,6 +2,8 @@ const path = require('path');
 
 module.exports = (app) => {
   // 模板渲染引擎
+  const koaStatic = require('koa-static');
+  app.use(koaStatic(path.resolve(process.cwd(),'./app/public')));
   const koaNunjucks = require('koa-nunjucks-2');
   app.use(koaNunjucks({
     ext: 'tpl',

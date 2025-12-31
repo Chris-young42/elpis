@@ -1,11 +1,11 @@
 module.exports = (app) => {
   return class ViewController {
     async renderPage(ctx) {
-        await ctx.render(`output/entry.${ctx.params.page}`, {
-            title: 'Elpis Framework',
-            name: app.config.name,
-            age: app.config.age,
-        });
+      await ctx.render(`output/entry.${ctx.params.page}`, {
+        name: app.config?.name,
+        env: app.env.get(),
+        options:JSON.stringify(app.options)
+      });
     }
   };
 };
